@@ -1,0 +1,58 @@
+import java.util.Scanner;
+/**
+ * 
+ * @author Josh Freeman
+ */
+public class RestaurantBill {
+
+	public static void main(String[] args) {
+		
+		double bill; // to hold the value of the user's bill
+		double tip; // to hold the value of the user's desired tip
+		double tipTotal; // to hold the value of the tip after calculation
+		final double tax = 0.10; // constant value of 10% for tax.
+		double taxTotal; // to hold the value tax
+		double billWithTax; // to hold the value of bill + tax
+		double total; // to hold the value of the user's total bill
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		// Prompt user for the amount on their bill and store the value
+		System.out.print("Enter the bill amount: $");
+		bill = keyboard.nextDouble();
+		
+		// Prompt user for their desired tip
+		System.out.print("Enter the tip percentage: ");
+		tip = keyboard.nextDouble();
+		
+		// Calculate the total of the bill with tax
+		taxTotal = bill * tax;
+		
+		// Rounded tax value
+		double taxRound = Math.round(taxTotal*100)/100.0;
+		
+		// Calculate the total of the bill + tax
+		billWithTax = bill + taxTotal;
+		
+		// Calculate tip
+		tipTotal = billWithTax * (tip / 100);
+		
+		// Rounded tip value
+		double tipRound = Math.round(tipTotal*100)/100.0;
+		
+		// Calculate the total bill
+		total = billWithTax + tipTotal;
+		
+		// Rounds the total of the bill to 2 decimal points
+		double grandTotal = Math.round(total*100)/100.0;
+		
+		// Output of values on the bill
+		
+		System.out.println("The meal cost is: $" + bill);
+		System.out.println("The tax amount is: $" + taxRound);
+		System.out.println("The tip amount is: $" + tipRound);
+		System.out.println("the total bill is: $" + grandTotal);
+
+        scanner.close();
+	}
+}

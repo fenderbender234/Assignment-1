@@ -1,0 +1,54 @@
+import java.util.Scanner;
+/**
+ * 
+ * @author Josh Freeman
+ *
+ */
+
+
+public class InterestEarned {
+
+	public static void main(String[] args) {
+		
+		double principal; // balance in savings account
+		double rate; // interest rate in percentage form
+		double T; // number of times interest is compounded in a year
+		double amount; // total amount in savings account
+		double interest; // amount of interest
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		// Prompt user for their principal balance and stores the value
+		System.out.print("Enter the principal balance: ");
+		principal = keyboard.nextDouble();
+		
+		// Prompt user for their interest rate and stores the value
+		System.out.print("Enter the percent interest rate as a percentage value: ");
+		rate = keyboard.nextDouble();
+		
+		// Prompt user for the number of times the interest is compounded and stores the value
+		System.out.print("Enter the times compounded per year: ");
+		T = keyboard.nextDouble();
+		
+		// Calculate interest gained
+		interest = principal * (Math.pow((1 + ((rate/100) / T)), T)) - 1000;
+
+		// Calculate total in savings
+		amount = principal + interest;
+		
+		// Rounded interest value
+		double interestRound = Math.round(interest*100)/100.0;
+		
+		// Rounded amount value
+		double amountRound = Math.round(amount*100)/100.0;
+		
+		// Output of values to the user
+		System.out.println("Interest rate: " + rate + "%");
+		System.out.println("Times compounded: " + T);
+		System.out.println("Principal: $" + principal);
+		System.out.println("Interest: " + interestRound);
+		System.out.println("Amount in savings: $" + amountRound);
+
+        scanner.close();
+	}
+}
